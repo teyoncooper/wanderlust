@@ -1,0 +1,29 @@
+.nav-link {
+    color: white;
+}
+
+.navbar-brand {
+    color: rgb(255, 255, 255);
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.userinput {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h4 {
+    text-align: center;
+    color: rgb(56, 139, 235)
+}
+
+#cards {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#username {
+    color: rgb(56, 139, 235);
+}

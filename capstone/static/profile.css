@@ -1,0 +1,28 @@
+h1 {
+    text-align: center;
+    font-style: italic;
+}
+
+h3 {
+    color: rgb(56, 139, 235);
+    font-style: italic;
+    
+}
+
+.nav-link {
+    color: white;
+}
+
+.navbar-brand {
+    color: rgb(255, 255, 255);
+}
+
+#travelp {
+    text-align: center;
+}
+
+#username {
+    color: rgb(56, 139, 235);
+    font-style: italic;
+}
+

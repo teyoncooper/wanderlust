@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/d0e792c470.js" crossorigin="anonymous"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'profile.css' %}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-primary">
+        <div class="container-fluid">
+        <a class="navbar-brand" href="#">cheap x ADVENTURES</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+            <a class="nav-link" href="{% url 'logout' %}?next=/accounts/login">logout</a>
+            </div>
+        </div>
+        </div>
+    </nav><br><br>
+
+    <h1>@{{ request.user }}</h1><br><br>
+
+    <h3>@{{request.user}}'s Saved Flights</h3>
+    {% for flight in flightInfo %}
+    <li id="cards"><div 
+        class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Flights</h5>
+            <p class="card-text">Departing: {{ flight.departing }}  <i class="fa-solid fa-plane"></i> 
+                Arriving: {{ flight.arriving }} ${{ flight.price }}
+            </p>
+            <a href="https://www.priceline.com/?vrid=a02e0d033f17b677eecdacb6a711c10c" class="btn btn-primary" id="priceline">priceline.com</a>
+        </div>
+    </div>
+</li> 
+{% endfor %}<br>
+
+<h3>Travel Posts</h3><br>
+    {% for comments in user_comments %}
+
+    <div>
+        <a id="username">
+            @{{comments.user.username}}
+        </a>
+        <p>
+            {{comments.text}}
+        </p>
+        <p>
+            {{comments.time_created}}
+        </p>
+        <hr>
+    </div>
+    {% endfor %}
+
+    {% comment %} {% for flights in flightInfo %} 
+    {{ flights.arriving }}{{ flights.departing }}{{ flights.price }}
+    {% endfor %}  {% endcomment %}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+</body>
+</html>
